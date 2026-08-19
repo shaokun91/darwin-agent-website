@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Darwin Agent is a research team building agents that learn continuously, improve their own systems, and evolve through experience.">
   <meta name="theme-color" content="#f2f0e9">
+  <meta property="og:title" content="Darwin Agent — Agents that evolve">
+  <meta property="og:description" content="Open research on continuously learning and self-evolving agent systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shaokun91.github.io/darwin-agent-website/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://shaokun91.github.io/darwin-agent-website/">
   <title>Darwin Agent — Agents that evolve</title>
   <link rel="stylesheet" href="./styles.css">
   <script defer src="./script.js"></script>
 </head>
-<body>
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Darwin Agent home"><span class="mark" aria-hidden="true">D</span><span>Darwin Agent</span></a>
     <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
@@ -19,7 +26,7 @@
     </nav>
   </header>
 
-  <main id="top">
+  <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
       <canvas id="evolution-canvas" aria-hidden="true"></canvas>
       <div class="hero-grid"></div>
@@ -57,22 +64,23 @@
         <p class="section-intro">A self-evolving agent needs more than memory. It needs a closed loop that can preserve evidence, locate the source of failure, propose changes, and verify that those changes generalize.</p>
       </div>
       <div class="research-list">
-        <article class="research-row"><span class="row-number">01</span><div><h3>Experience & memory</h3><p>Structure trajectories into reusable knowledge with provenance, lifecycle management, and selective forgetting.</p></div><span class="row-symbol">M</span></article>
-        <article class="research-row"><span class="row-number">02</span><div><h3>Harness evolution</h3><p>Search over prompts, tools, control flow, policies, and evaluators as explicit, testable system objects.</p></div><span class="row-symbol">H</span></article>
-        <article class="research-row"><span class="row-number">03</span><div><h3>Learning from feedback</h3><p>Turn outcome signals and failure attribution into improvements that transfer across tasks and environments.</p></div><span class="row-symbol">F</span></article>
-        <article class="research-row"><span class="row-number">04</span><div><h3>Collective intelligence</h3><p>Evolve roles, communication, and topology so teams of agents become more capable without becoming less reliable.</p></div><span class="row-symbol">N</span></article>
+        <a class="research-row" href="https://github.com/Darwin-Agent/Mi-Memory" target="_blank" rel="noreferrer"><span class="row-number">01</span><div><h3>Experience & memory</h3><p>Structure trajectories into reusable knowledge with provenance, lifecycle management, and selective forgetting.</p><small>Explore Mi-Memory ↗</small></div><span class="row-symbol">M</span></a>
+        <a class="research-row" href="https://github.com/Darwin-Agent/HarnessX" target="_blank" rel="noreferrer"><span class="row-number">02</span><div><h3>Harness evolution</h3><p>Search over prompts, tools, control flow, policies, and evaluators as explicit, testable system objects.</p><small>Explore HarnessX ↗</small></div><span class="row-symbol">H</span></a>
+        <a class="research-row" href="https://github.com/Darwin-Agent/Car-bench-TRACE" target="_blank" rel="noreferrer"><span class="row-number">03</span><div><h3>Learning from feedback</h3><p>Turn outcome signals and failure attribution into improvements that transfer across tasks and environments.</p><small>Explore CAR-bench TRACE ↗</small></div><span class="row-symbol">F</span></a>
+        <a class="research-row" href="https://github.com/Darwin-Agent/topological-collapse-agent-societies" target="_blank" rel="noreferrer"><span class="row-number">04</span><div><h3>Collective intelligence</h3><p>Study roles, communication, and higher-order topology so agent societies scale without collapsing into redundant interactions.</p><small>Explore Topological Collapse ↗</small></div><span class="row-symbol">N</span></a>
       </div>
     </section>
 
     <section class="system" id="system">
       <div class="system-copy">
         <p class="section-kicker light">The Darwin loop</p>
-        <h2>A system that<br>rewrites itself.</h2>
-        <p>Darwin-Agent separates the agent into evolvable layers. Every run creates evidence. Every failure becomes a diagnosis. Every proposed change must survive evaluation before it becomes part of the next generation.</p>
-        <a class="button button-light" href="https://github.com/Darwin-Agent" target="_blank" rel="noreferrer">View the repository <span aria-hidden="true">↗</span></a>
+        <h2>A system built<br>to improve.</h2>
+        <p>Darwin Agent treats instructions, skills, tool routing, memory, and interaction topology as explicit evolvable surfaces. Every proposed change must pass task-level evaluation before it becomes part of the next generation.</p>
+        <div class="system-layers" aria-label="Evolvable system layers"><span>Instructions</span><span>Skills</span><span>Tools</span><span>Memory</span><span>Topology</span></div>
+        <a class="button button-light" href="https://github.com/Darwin-Agent/HarnessX" target="_blank" rel="noreferrer">Explore HarnessX <span aria-hidden="true">↗</span></a>
       </div>
       <div class="loop" role="img" aria-label="Observe, attribute, propose, evaluate, and internalize loop">
-        <div class="loop-core"><small>Generation</small><strong id="generation-count">042</strong><span>fitness improving</span></div>
+        <div class="loop-core"><small>Closed loop</small><strong>∞</strong><span>evidence before adoption</span></div>
         <div class="orbit orbit-1"><span>Observe</span><span>Attribute</span><span>Propose</span><span>Evaluate</span><span>Internalize</span></div>
         <div class="orbit orbit-2"></div>
       </div>
@@ -80,11 +88,17 @@
 
     <section class="work band" id="work">
       <div class="section-heading compact"><div><p class="section-kicker">Selected work</p><h2>Open systems,<br>measurable progress.</h2></div><p class="section-intro">We publish code and evaluations because evolution without measurement is drift.</p></div>
-      <a class="feature-project" href="https://github.com/Darwin-Agent" target="_blank" rel="noreferrer">
-        <div class="project-meta"><span>Open-source system</span><span>2025 — ongoing</span></div>
-        <div class="project-main"><div><h3>Darwin-Agent</h3><p>A research platform for agents that improve through task experience, system-level optimization, and verifiable feedback loops.</p></div><span class="project-arrow" aria-hidden="true">↗</span></div>
-        <div class="project-tags"><span>Continuous learning</span><span>Harness optimization</span><span>Memory</span><span>Evaluation</span><span>Multi-agent</span></div>
+      <a class="feature-project" href="https://github.com/Darwin-Agent/HarnessX" target="_blank" rel="noreferrer">
+        <div class="project-meta"><span>Flagship open-source system</span><span>Python · MIT</span></div>
+        <div class="project-main"><div><h3>HarnessX</h3><p>A harness foundry for composing agent systems from reusable processors and bundles, pairing them with any model, and evolving them through training.</p></div><span class="project-arrow" aria-hidden="true">↗</span></div>
+        <div class="project-tags"><span>Harness foundry</span><span>Composable processors</span><span>Training</span><span>Benchmarks</span><span>Open source</span></div>
       </a>
+      <div class="project-grid" aria-label="Darwin Agent research projects">
+        <a class="project-card memory-card" href="https://github.com/Darwin-Agent/Mi-Memory" target="_blank" rel="noreferrer"><span class="project-type">Memory systems · MIT</span><h3>Mi-Memory</h3><p>A composable, evolvable, multi-source memory system for daily assistant agents.</p><span class="card-link">Repository ↗</span></a>
+        <a class="project-card trace-card" href="https://github.com/Darwin-Agent/Car-bench-TRACE" target="_blank" rel="noreferrer"><span class="project-type">Skill evolution · MIT</span><h3>CAR-bench TRACE</h3><p>Trajectory-driven skill-bank evolution for reliable in-car agents; the team solution for IJCAI-ECAI 2026 CAR-bench Track 1.</p><span class="card-link">Code & report ↗</span></a>
+        <a class="project-card topology-card" href="https://github.com/Darwin-Agent/topological-collapse-agent-societies" target="_blank" rel="noreferrer"><span class="project-type">Multi-agent science · MIT</span><h3>Topological Collapse</h3><p>Code and reproducibility artifacts for studying how higher-order interaction structure constrains collective intelligence.</p><span class="card-link">Reproduce the study ↗</span></a>
+        <a class="project-card world-card" href="https://github.com/Darwin-Agent/awesome-world-models-for-digital-agents" target="_blank" rel="noreferrer"><span class="project-type">World models · MIT</span><h3>Digital Agents Meet World Models</h3><p>A survey and curated research map spanning games, GUI, tool use, and code agents.</p><span class="card-link">Survey & collection ↗</span></a>
+      </div>
       <div class="principles">
         <div><span>01</span><h3>System-level</h3><p>The model is one component. Tools, memory, prompts, topology, and feedback all shape capability.</p></div>
         <div><span>02</span><h3>Evidence-driven</h3><p>Changes are traced to failures and accepted only after controlled evaluation.</p></div>

@@ -7,11 +7,21 @@ This project is a responsive static research-team website for Darwin Agent.
 
 The page positions the team around continuously learning, self-evolving agents and links to the public Darwin-Agent GitHub organization.
 
+Live site: <https://shaokun91.github.io/darwin-agent-website/>
+
 ## Files
 
 - `index.html` — research homepage
 - `styles.css` — visual design and layout
 - `script.js` — responsive navigation and interactive evolution visualization
+
+## Featured research
+
+- [HarnessX](https://github.com/Darwin-Agent/HarnessX) — composable and evolvable agent harnesses
+- [Mi-Memory](https://github.com/Darwin-Agent/Mi-Memory) — composable, evolvable multi-source memory
+- [CAR-bench TRACE](https://github.com/Darwin-Agent/Car-bench-TRACE) — trajectory-driven skill-bank evolution
+- [Topological Collapse](https://github.com/Darwin-Agent/topological-collapse-agent-societies) — higher-order structure in agent societies
+- [Digital Agents Meet World Models](https://github.com/Darwin-Agent/awesome-world-models-for-digital-agents) — survey and research collection
 
 ## How to view
 
