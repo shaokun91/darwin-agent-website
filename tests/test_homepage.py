@@ -89,7 +89,7 @@ class HomepageTests(unittest.TestCase):
 
     def test_local_resources_exist(self):
         for tag, attrs in self.page.elements:
-            path = attrs.get("src") if tag == "script" else attrs.get("href") if tag == "link" else None
+            path = attrs.get("src") if tag in ("script", "img") else attrs.get("href") if tag == "link" else None
             if path and path.startswith("./"):
                 self.assertTrue((ROOT / urlsplit(path).path).is_file(), path)
 
@@ -110,6 +110,18 @@ class HomepageTests(unittest.TestCase):
             self.assertTrue(source.startswith("https://arxiv.org/abs/") or
                             source.startswith("https://github.com/Darwin-Agent/"))
         self.assertEqual(sum(source.endswith("v1") for source in sources), 5)
+
+    def test_footer_contains_accessible_qr_and_download(self):
+        qr_images = [attrs for tag, attrs in self.page.elements
+                     if tag == "img" and attrs.get("src") == "./assets/darwin-agent-qr.svg"]
+        self.assertEqual(len(qr_images), 1)
+        self.assertTrue(qr_images[0].get("alt"))
+        self.assertEqual(qr_images[0]["width"], qr_images[0]["height"])
+        downloads = [link for link in self.page.links if "download" in link]
+        self.assertEqual(len(downloads), 1)
+        self.assertEqual(downloads[0]["href"], "./assets/darwin-agent-qr.png")
+        self.assertTrue((ROOT / downloads[0]["href"]).is_file())
+        self.assertGreater(self.html.index('class="footer-share"'), self.html.index("<footer>"))
 
 
 if __name__ == "__main__":

@@ -17,6 +17,10 @@ Live site: <https://shaokun91.github.io/darwin-agent-website/>
 - `index.html` — research homepage
 - `styles.css` — visual design and layout
 - `script.js` — responsive navigation and interactive evolution visualization
+- `assets/darwin-agent-qr.svg` — self-contained homepage QR for the footer
+- `assets/darwin-agent-qr.png` — 1176 × 1176 downloadable QR
+- `assets/darwin-mark-orange.png` — orange D lettermark used in the QR
+- `scripts/build_qr.py` — deterministic QR asset generator (development only)
 
 ## Featured research
 
@@ -97,3 +101,24 @@ clickable project cards.
 
 The hero's `evolve.` highlight uses Xiaomi orange (`#ff6900`), matching the
 HarnessPAI project page. Other existing color accents are retained.
+
+### Homepage QR code
+
+The page ends with a scan-and-share section linking directly to
+`https://shaokun91.github.io/darwin-agent-website/`. There is no redirect service,
+tracking URL, third-party image dependency, or runtime QR library. The center
+uses an image-generated variant of the existing square-framed italic D mark,
+normalized to exact Xiaomi orange (`#ff6900`) on white. Header and footer D marks
+use the same orange.
+
+The QR uses version 6, H error correction, a four-module white quiet zone, and a
+small central logo plate clear of finder, timing, and alignment patterns. The
+SVG embeds its logo and is independently portable; the PNG download is 1176 px.
+
+To rebuild, install `qrcode==8.2` and `Pillow` in a development virtual environment
+and run `python scripts/build_qr.py`. To run image-decoding tests as well, install
+`zxing-cpp==2.3.0` and run `python -m unittest discover -s tests -v`. The tests check
+the decoded URL at several sizes, after rotation, JPEG compression, and grayscale
+conversion. Recheck the decoded URL and layout whenever the destination or logo
+changes. The generator intentionally rejects a different QR version so logo
+placement cannot silently cover a function pattern.

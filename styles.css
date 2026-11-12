@@ -19,6 +19,7 @@ html,body{overflow-x:hidden}
 :root{--xiaomi-orange:#ff6900}
 .hero h1{margin-top:0}
 .hero h1 em{color:var(--xiaomi-orange)}
+.wordmark .mark{color:var(--xiaomi-orange)}
 
 /* New projects extend the existing editorial grid and restrained color palette. */
 .project-announcements{
@@ -68,4 +69,31 @@ html,body{overflow-x:hidden}
 }
 @media(prefers-reduced-motion:reduce){
   .research-row,.feature-project,.project-card,.skip-link{transition:none}
+}
+
+/* A self-contained, scannable share card closes the page. */
+.footer-share{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  justify-content:stretch;
+  gap:36px 64px;
+  margin-top:24px;
+  padding-top:44px;
+  border-top:1px solid var(--line);
+}
+.share-copy{max-width:480px}
+.share-copy h2{font:400 clamp(36px,4vw,56px)/1.05 Georgia,'Times New Roman',serif;margin:18px 0 20px}
+.share-copy>p:not(.section-kicker){font-size:16px;color:var(--muted);margin-bottom:24px}
+.share-code{margin:0;text-align:center}
+.share-qr{display:block;width:267px;padding:10px;border:1px solid var(--line);background:#fff}
+.share-qr img{display:block;width:245px;max-width:100%;height:auto}
+.share-code figcaption{font:10px/1.5 monospace;color:var(--muted);margin-top:12px}
+.share-qr:focus-visible{outline:3px solid var(--xiaomi-orange);outline-offset:5px}
+.share-download:hover{color:#a64200}
+@media(max-width:800px){
+  .footer-share{grid-template-columns:1fr;gap:30px;padding-top:36px;margin-top:10px;text-align:center}
+  .share-copy{margin-inline:auto}
+  .share-code{justify-self:center}
 }
