@@ -49,11 +49,13 @@ def build():
                 cells.append(f"M{x} {y}h1v1h-1z")
     draw.rectangle((plate_start * BOX_SIZE, plate_start * BOX_SIZE,
                     plate_end * BOX_SIZE - 1, plate_end * BOX_SIZE - 1), fill="white")
-    logo = Image.open(ASSETS / "darwin-mark-orange.png").convert("RGB")
+    mark = Image.open(ASSETS / "darwin-mark-da-orange.png").convert("RGBA")
+    logo = Image.new("RGB", mark.size, "white")
+    logo.paste(mark, mask=mark.getchannel("A"))
     logo_pixels = LOGO_MODULES * BOX_SIZE
     image.paste(logo.resize((logo_pixels, logo_pixels), Image.Resampling.LANCZOS),
                 (round(logo_start * BOX_SIZE), round(logo_start * BOX_SIZE)))
-    image.save(ASSETS / "darwin-agent-qr.png", optimize=True)
+    image.save(ASSETS / "darwin-agent-qr-da.png", optimize=True)
 
     # Embed the normalized logo, so the downloaded SVG is fully self-contained.
     encoded = BytesIO()
@@ -61,14 +63,14 @@ def build():
     data_url = "data:image/png;base64," + b64encode(encoded.getvalue()).decode("ascii")
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{pixels}" height="{pixels}" viewBox="0 0 {extent} {extent}" role="img" aria-labelledby="qr-title qr-description">
   <title id="qr-title">Darwin Agent homepage QR code</title>
-  <desc id="qr-description">High-error-correction QR code for {escape(URL)} with an orange Darwin D lettermark.</desc>
+  <desc id="qr-description">High-error-correction QR code for {escape(URL)} with an orange Darwin Agent DA monogram.</desc>
   <rect width="{extent}" height="{extent}" fill="#fff"/>
   <path d="{"".join(cells)}" fill="{INK}" shape-rendering="crispEdges"/>
   <rect x="{plate_start}" y="{plate_start}" width="{PLATE_MODULES}" height="{PLATE_MODULES}" fill="#fff"/>
   <image x="{logo_start}" y="{logo_start}" width="{LOGO_MODULES}" height="{LOGO_MODULES}" href="{data_url}"/>
 </svg>
 '''
-    (ASSETS / "darwin-agent-qr.svg").write_text(svg, encoding="utf-8")
+    (ASSETS / "darwin-agent-qr-da.svg").write_text(svg, encoding="utf-8")
     print(f"QR v{qr.version}, H correction, {extent} modules including quiet zone, {pixels}px PNG")
     print(URL)
 

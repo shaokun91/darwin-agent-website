@@ -17,14 +17,14 @@ URL = "https://shaokun91.github.io/darwin-agent-website/"
 
 class QRAssetTests(unittest.TestCase):
     def test_svg_is_self_contained_and_has_quiet_zone(self):
-        root = ET.parse(ROOT / "assets/darwin-agent-qr.svg").getroot()
+        root = ET.parse(ROOT / "assets/darwin-agent-qr-da.svg").getroot()
         ns = {"svg": "http://www.w3.org/2000/svg"}
         self.assertEqual(root.attrib["viewBox"], "0 0 49 49")
         self.assertIn(URL, root.find("svg:desc", ns).text)
         embedded = root.find("svg:image", ns)
         self.assertTrue(embedded.attrib["href"].startswith("data:image/png;base64,"))
         self.assertEqual(root.find("svg:rect", ns).attrib["fill"], "#fff")
-        self.assertTrue((ROOT / "assets/darwin-mark-orange.png").is_file())
+        self.assertTrue((ROOT / "assets/darwin-mark-da-orange.png").is_file())
         # Data modules must stay inside the four-module white border.
         import re
         cells = re.findall(r"M(\d+) (\d+)h1v1h-1z", root.find("svg:path", ns).attrib["d"])
@@ -36,7 +36,7 @@ class QRAssetTests(unittest.TestCase):
 class QRDecodeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.image = Image.open(ROOT / "assets/darwin-agent-qr.png").convert("RGB")
+        cls.image = Image.open(ROOT / "assets/darwin-agent-qr-da.png").convert("RGB")
 
     def assertDecodes(self, image):
         result = zxingcpp.read_barcode(image)
@@ -62,10 +62,11 @@ class QRDecodeTests(unittest.TestCase):
         self.assertDecodes(Image.open(jpeg))
 
     def test_lettermark_uses_xiaomi_orange(self):
-        with Image.open(ROOT / "assets/darwin-mark-orange.png") as mark:
-            self.assertEqual(mark.getpixel((0, 0)), (255, 255, 255))
+        with Image.open(ROOT / "assets/darwin-mark-da-orange.png") as mark:
+            self.assertEqual(mark.mode, "RGBA")
+            self.assertEqual(mark.getpixel((0, 0))[3], 0)
             orange_pixels = sum(count for count, color in mark.getcolors(mark.width * mark.height)
-                                if color == (255, 105, 0))
+                                if color == (255, 105, 0, 255))
             self.assertGreater(orange_pixels, 10000)
 
 

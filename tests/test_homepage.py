@@ -113,15 +113,24 @@ class HomepageTests(unittest.TestCase):
 
     def test_footer_contains_accessible_qr_and_download(self):
         qr_images = [attrs for tag, attrs in self.page.elements
-                     if tag == "img" and attrs.get("src") == "./assets/darwin-agent-qr.svg"]
+                     if tag == "img" and attrs.get("src") == "./assets/darwin-agent-qr-da.svg"]
         self.assertEqual(len(qr_images), 1)
         self.assertTrue(qr_images[0].get("alt"))
         self.assertEqual(qr_images[0]["width"], qr_images[0]["height"])
         downloads = [link for link in self.page.links if "download" in link]
         self.assertEqual(len(downloads), 1)
-        self.assertEqual(downloads[0]["href"], "./assets/darwin-agent-qr.png")
+        self.assertEqual(downloads[0]["href"], "./assets/darwin-agent-qr-da.png")
         self.assertTrue((ROOT / downloads[0]["href"]).is_file())
         self.assertGreater(self.html.index('class="footer-share"'), self.html.index("<footer>"))
+
+    def test_da_monogram_is_shared_by_header_footer_and_favicon(self):
+        image_path = "./assets/darwin-mark-da-orange.png"
+        marks = [attrs for tag, attrs in self.page.elements
+                 if tag == "img" and attrs.get("src") == image_path]
+        self.assertEqual(len(marks), 2)
+        icons = [attrs for tag, attrs in self.page.elements
+                 if tag == "link" and attrs.get("rel") == "icon"]
+        self.assertEqual(icons[0]["href"], image_path)
 
 
 if __name__ == "__main__":

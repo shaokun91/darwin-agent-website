@@ -17,9 +17,10 @@ Live site: <https://shaokun91.github.io/darwin-agent-website/>
 - `index.html` — research homepage
 - `styles.css` — visual design and layout
 - `script.js` — responsive navigation and interactive evolution visualization
-- `assets/darwin-agent-qr.svg` — self-contained homepage QR for the footer
-- `assets/darwin-agent-qr.png` — 1176 × 1176 downloadable QR
-- `assets/darwin-mark-orange.png` — orange D lettermark used in the QR
+- `assets/darwin-agent-qr-da.svg` — self-contained DA-branded homepage QR for the footer
+- `assets/darwin-agent-qr-da.png` — 1176 × 1176 downloadable QR
+- `assets/darwin-mark-da-orange.png` — 1024 × 1024 transparent DA monogram
+- `assets/darwin-mark-da-white.png` — matching white transparent DA monogram
 - `scripts/build_qr.py` — deterministic QR asset generator (development only)
 
 ## Featured research
@@ -107,9 +108,10 @@ HarnessPAI project page. Other existing color accents are retained.
 The page ends with a scan-and-share section linking directly to
 `https://shaokun91.github.io/darwin-agent-website/`. There is no redirect service,
 tracking URL, third-party image dependency, or runtime QR library. The center
-uses an image-generated variant of the existing square-framed italic D mark,
-normalized to exact Xiaomi orange (`#ff6900`) on white. Header and footer D marks
-use the same orange.
+uses an image-generated, interlocking DA monogram, normalized to exact Xiaomi
+orange (`#ff6900`) on white. The same transparent mark appears in the header,
+footer, and favicon. The previous D-only assets remain available at their old
+paths; no existing downloadable asset was deleted.
 
 The QR uses version 6, H error correction, a four-module white quiet zone, and a
 small central logo plate clear of finder, timing, and alignment patterns. The
@@ -122,3 +124,19 @@ the decoded URL at several sizes, after rotation, JPEG compression, and grayscal
 conversion. Recheck the decoded URL and layout whenever the destination or logo
 changes. The generator intentionally rejects a different QR version so logo
 placement cannot silently cover a function pattern.
+
+### DA identity
+
+The monogram combines D (Darwin) and A (Agent) into one compact silhouette. The
+rounded D provides a stable, enclosing structure; the angular A emerges from it,
+with a shared connection and clear negative-space channels keeping both letters
+legible. This visual direction evokes accumulated experience becoming action,
+consistent with the team's emphasis on memory, feedback, and self-evolving agent
+systems. These are design intentions, not technical claims about the symbol.
+
+Use the orange transparent PNG on light or dark neutral backgrounds and the
+white variant where a reversed mark is needed. Preserve the clear space baked
+into the asset, do not stretch it, and do not add the old square border. Use the
+monogram alone at small sizes; pair it with the existing Darwin Agent wordmark
+for larger website and presentation applications. A 40 px mark is used in the
+website navigation; the QR logo remains within its tested central safe area.
