@@ -14,3 +14,45 @@ html,body{overflow-x:hidden}
 .system-layers{display:flex;flex-wrap:wrap;gap:7px;margin:26px 0 5px}.system-layers span{border:1px solid #626860;padding:6px 9px;font:9px monospace;text-transform:uppercase;letter-spacing:.05em;color:#c9cdc6}
 .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ink);margin-bottom:56px}.project-card{min-height:310px;padding:32px 34px;display:flex;flex-direction:column;border-bottom:1px solid var(--ink);transition:background .2s,color .2s,transform .2s}.project-card:nth-child(odd){border-right:1px solid var(--ink)}.project-card:hover{transform:translateY(-3px)}.project-card h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:38px;line-height:1;margin:46px 0 18px;max-width:500px}.project-card p{color:#565a53;max-width:560px;margin-bottom:28px}.project-type,.card-link{font:10px monospace;text-transform:uppercase;letter-spacing:.06em}.card-link{margin-top:auto;font-weight:700}.memory-card:hover{background:#ff876f}.trace-card:hover{background:#ffc85d}.topology-card:hover{background:#1a1e1a;color:#fff}.topology-card:hover p{color:#c3c7bf}.world-card:hover{background:#8ca6ff}
 @media(max-width:800px){.research-row small{font-size:9px}.project-grid{grid-template-columns:1fr}.project-card{min-height:265px;padding:26px 0}.project-card:nth-child(odd){border-right:0}.project-card h3{font-size:32px;margin-top:35px}.project-card:hover{transform:none}.system-layers{margin-bottom:12px}}
+
+/* New projects extend the existing editorial grid and restrained color palette. */
+.project-announcements{
+  max-width:var(--max);
+  margin:auto;
+  padding:26px 6vw;
+  display:grid;
+  grid-template-columns:140px repeat(2,minmax(0,1fr));
+  align-items:center;
+  gap:30px;
+  border-bottom:1px solid var(--line);
+}
+.project-announcements .section-kicker{margin:0}
+.project-announcements a{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.project-announcements strong{display:block;font-size:16px}
+.project-announcements small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.project-announcements a>span:last-child{color:var(--coral);font-size:24px}
+.project-announcements a:hover strong{text-decoration:underline;text-underline-offset:4px}
+.project-card-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.project-card-meta .project-type{line-height:1.6}
+.project-badge{flex-shrink:0;background:var(--ink);color:var(--paper);padding:3px 6px;font:9px monospace;text-transform:uppercase;letter-spacing:.06em}
+.latest-project{min-height:410px}
+.latest-project h3{margin-top:38px}
+.latest-project h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.latest-project .project-tags{margin:0 0 32px}
+.latest-project .project-tags span{font-size:9px;padding:5px 7px}
+.project-resources{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:auto}
+.project-resources a{font:11px monospace;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:8px 0;border-bottom:1px solid currentColor}
+.project-resources a span{margin-left:5px}
+.physical-card:hover,.physical-card:focus-within{background:#ffb8a9}
+.wia-card:hover,.wia-card:focus-within{background:#c0ceff}
+.project-announcements a:focus-visible,.latest-project a:focus-visible{outline:3px solid var(--coral);outline-offset:5px}
+@media(max-width:800px){
+  .project-announcements{grid-template-columns:1fr;padding:24px 5vw;gap:22px}
+  .project-announcements a+a{border-top:1px solid var(--line);padding-top:20px}
+  .latest-project{min-height:0;padding:30px 0}
+  .latest-project .project-tags{margin-bottom:24px}
+  .project-resources{gap:12px 22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .research-row,.feature-project,.project-card,.skip-link{transition:none}
+}
