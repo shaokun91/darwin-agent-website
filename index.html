@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://shaokun91.github.io/darwin-agent-website/">
   <title>Darwin Agent — Agents that evolve</title>
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=20261112-2">
   <script defer src="./script.js"></script>
 </head>
 <body id="top">
@@ -31,7 +31,6 @@
       <canvas id="evolution-canvas" aria-hidden="true"></canvas>
       <div class="hero-grid"></div>
       <div class="hero-copy">
-        <p class="status"><span></span> Independent agent research</p>
         <h1 id="hero-title">Agents that<br><em>evolve.</em></h1>
         <p class="hero-lede">We build continuously learning agents that turn experience into durable system improvements — across digital and physical worlds.</p>
         <div class="hero-actions">
@@ -97,13 +96,19 @@
     <section class="work band" id="work">
       <div class="section-heading compact"><div><p class="section-kicker">Selected work</p><h2>Open systems,<br>measurable progress.</h2></div><p class="section-intro">From memory and agent harnesses to world models and embodied execution, we publish research and code to make progress inspectable.</p></div>
       <a class="feature-project" href="https://github.com/Darwin-Agent/HarnessX" target="_blank" rel="noreferrer">
-        <div class="project-meta"><span>Flagship open-source system</span><span>Python · MIT</span></div>
+        <div class="project-meta">
+          <div><span>Flagship open-source system</span><span class="project-date" data-date-source="https://arxiv.org/abs/2606.14249v1"><span>First preprint</span><time datetime="2026-06-12">12 Jun 2026</time></span></div>
+          <span>Python · MIT</span>
+        </div>
         <div class="project-main"><div><h3>HarnessX</h3><p>A harness foundry for composing agent systems from reusable processors and bundles, pairing them with any model, and evolving them through training.</p></div><span class="project-arrow" aria-hidden="true">↗</span></div>
         <div class="project-tags"><span>Harness foundry</span><span>Composable processors</span><span>Training</span><span>Benchmarks</span><span>Open source</span></div>
       </a>
       <div class="project-grid" aria-label="Darwin Agent research projects">
         <article class="project-card latest-project physical-card" id="harnesspai" aria-labelledby="harnesspai-title">
-          <div class="project-card-meta"><span class="project-type">Physical AI · Evolving harnesses</span><span class="project-badge">New</span></div>
+          <div class="project-card-meta">
+            <div><span class="project-type">Physical AI · Evolving harnesses</span><span class="project-date" data-date-source="https://arxiv.org/abs/2609.29166v1"><span>First preprint</span><time datetime="2026-09-24">24 Sep 2026</time></span></div>
+            <span class="project-badge">New</span>
+          </div>
           <h3 id="harnesspai-title"><a href="https://darwin-agent.github.io/HarnessPAI/" target="_blank" rel="noopener noreferrer">HarnessPAI</a></h3>
           <p>A model- and embodiment-agnostic harness that turns perception, reasoning, and action primitives into executable task programs. Programs stay fixed within a rollout and evolve from feedback between rollouts.</p>
           <div class="project-tags" aria-label="HarnessPAI topics"><span>Executable programs</span><span>Rollout feedback</span><span>Reusable skills</span></div>
@@ -114,7 +119,7 @@
           </nav>
         </article>
         <article class="project-card latest-project wia-card" id="wia" aria-labelledby="wia-title">
-          <div class="project-card-meta"><span class="project-type">World models · Digital agents</span><span class="project-badge">New</span></div>
+          <div class="project-card-meta"><div><span class="project-type">World models · Digital agents</span></div><span class="project-badge">New</span></div>
           <h3 id="wia-title"><a href="https://darwin-agent.github.io/WIA/" target="_blank" rel="noopener noreferrer">WIA</a></h3>
           <p>World Intelligence Agent unifies world modeling and action learning across seven digital environments. WIA-Corpus, WIA-Bench, WIA-WM, and WIA-WAM connect data, evaluation, environment prediction, and action learning.</p>
           <div class="project-tags" aria-label="WIA topics"><span>7 digital domains</span><span>World modeling</span><span>Action learning</span></div>
@@ -124,10 +129,30 @@
             <a href="https://darwin-agent.github.io/WIA/demos.html" target="_blank" rel="noopener noreferrer">Demos <span aria-hidden="true">↗</span></a>
           </nav>
         </article>
-        <a class="project-card memory-card" href="https://github.com/Darwin-Agent/Mi-Memory" target="_blank" rel="noreferrer"><span class="project-type">Memory systems · MIT</span><h3>Mi-Memory</h3><p>A composable, evolvable, multi-source memory system for daily assistant agents.</p><span class="card-link">Repository ↗</span></a>
-        <a class="project-card trace-card" href="https://github.com/Darwin-Agent/Car-bench-TRACE" target="_blank" rel="noreferrer"><span class="project-type">Skill evolution · MIT</span><h3>CAR-bench TRACE</h3><p>Trajectory-driven skill-bank evolution for reliable in-car agents; the team solution for IJCAI-ECAI 2026 CAR-bench Track 1.</p><span class="card-link">Code & report ↗</span></a>
-        <a class="project-card topology-card" href="https://github.com/Darwin-Agent/topological-collapse-agent-societies" target="_blank" rel="noreferrer"><span class="project-type">Multi-agent science · MIT</span><h3>Topological Collapse</h3><p>Code and reproducibility artifacts for studying how higher-order interaction structure constrains collective intelligence.</p><span class="card-link">Reproduce the study ↗</span></a>
-        <a class="project-card world-card" href="https://github.com/Darwin-Agent/awesome-world-models-for-digital-agents" target="_blank" rel="noreferrer"><span class="project-type">World models · MIT</span><h3>Digital Agents Meet World Models</h3><p>A survey and curated research map spanning games, GUI, tool use, and code agents.</p><span class="card-link">Survey & collection ↗</span></a>
+        <a class="project-card memory-card" href="https://github.com/Darwin-Agent/Mi-Memory" target="_blank" rel="noreferrer">
+          <div class="project-card-meta"><div><span class="project-type">Memory systems · MIT</span><span class="project-date" data-date-source="https://arxiv.org/abs/2607.18975v1"><span>First preprint</span><time datetime="2026-07-21">21 Jul 2026</time></span></div></div>
+          <h3>Mi-Memory</h3>
+          <p>A composable, evolvable, multi-source memory system for daily assistant agents.</p>
+          <span class="card-link">Repository ↗</span>
+        </a>
+        <a class="project-card trace-card" href="https://github.com/Darwin-Agent/Car-bench-TRACE" target="_blank" rel="noreferrer">
+          <div class="project-card-meta"><div><span class="project-type">Skill evolution · MIT</span><span class="project-date" data-date-source="https://arxiv.org/abs/2608.22793v1"><span>First preprint</span><time datetime="2026-08-24">24 Aug 2026</time></span></div></div>
+          <h3>CAR-bench TRACE</h3>
+          <p>Trajectory-driven skill-bank evolution for reliable in-car agents; the team solution for IJCAI-ECAI 2026 CAR-bench Track 1.</p>
+          <span class="card-link">Code & report ↗</span>
+        </a>
+        <a class="project-card topology-card" href="https://github.com/Darwin-Agent/topological-collapse-agent-societies" target="_blank" rel="noreferrer">
+          <div class="project-card-meta"><div><span class="project-type">Multi-agent science · MIT</span><span class="project-date" data-date-source="https://arxiv.org/abs/2608.15519v1"><span>First preprint</span><time datetime="2026-08-16">16 Aug 2026</time></span></div></div>
+          <h3>Topological Collapse</h3>
+          <p>Code and reproducibility artifacts for studying how higher-order interaction structure constrains collective intelligence.</p>
+          <span class="card-link">Reproduce the study ↗</span>
+        </a>
+        <a class="project-card world-card" href="https://github.com/Darwin-Agent/awesome-world-models-for-digital-agents" target="_blank" rel="noreferrer">
+          <div class="project-card-meta"><div><span class="project-type">World models · MIT</span><span class="project-date" data-date-source="https://github.com/Darwin-Agent/awesome-world-models-for-digital-agents#-news--updates"><span>Report published</span><time datetime="2026-05">May 2026</time></span></div></div>
+          <h3>Digital Agents Meet World Models</h3>
+          <p>A survey and curated research map spanning games, GUI, tool use, and code agents.</p>
+          <span class="card-link">Survey & collection ↗</span>
+        </a>
       </div>
       <div class="principles">
         <div><span>01</span><h3>System-level</h3><p>The model is one component. Tools, memory, prompts, topology, and feedback all shape capability.</p></div>

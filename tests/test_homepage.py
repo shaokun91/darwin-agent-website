@@ -2,6 +2,7 @@
 from html.parser import HTMLParser
 from pathlib import Path
 import unittest
+from urllib.parse import urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -90,7 +91,25 @@ class HomepageTests(unittest.TestCase):
         for tag, attrs in self.page.elements:
             path = attrs.get("src") if tag == "script" else attrs.get("href") if tag == "link" else None
             if path and path.startswith("./"):
-                self.assertTrue((ROOT / path).is_file(), path)
+                self.assertTrue((ROOT / urlsplit(path).path).is_file(), path)
+
+    def test_hero_has_no_independent_research_tagline(self):
+        self.assertNotIn("Independent agent research", self.html)
+        self.assertNotIn('class="status"', self.html)
+        self.assertIn('<em>evolve.</em>', self.html)
+
+    def test_publication_dates_preserve_verified_precision_and_sources(self):
+        dates = [attrs["datetime"] for tag, attrs in self.page.elements if tag == "time"]
+        self.assertCountEqual(dates, ["2026-06-12", "2026-09-24", "2026-07-21",
+                                      "2026-08-24", "2026-08-16", "2026-05"])
+        sources = [attrs["data-date-source"] for _, attrs in self.page.elements
+                   if "data-date-source" in attrs]
+        self.assertEqual(len(sources), len(dates))
+        self.assertEqual(len(set(sources)), len(sources))
+        for source in sources:
+            self.assertTrue(source.startswith("https://arxiv.org/abs/") or
+                            source.startswith("https://github.com/Darwin-Agent/"))
+        self.assertEqual(sum(source.endswith("v1") for source in sources), 5)
 
 
 if __name__ == "__main__":

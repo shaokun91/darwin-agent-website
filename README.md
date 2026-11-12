@@ -74,3 +74,26 @@ checked on 2026-11-12. The homepage summarizes their mechanisms and scope rather
 than reproducing benchmark rankings or implying that every advertised artifact
 is bundled with the public code. Project resources should link to verified public
 destinations.
+
+### Publication dates
+
+Dates were checked on 2026-11-12. **First preprint** means the initial arXiv
+submission (v1), not a later revision, conference acceptance, or repository
+creation date. **Report published** follows an explicit dated announcement from
+the project. Keep the source's date precision: do not invent a day when only a
+month is documented. Each displayed date uses a semantic `time` element; its
+parent's `data-date-source` records the evidence URL without nesting links inside
+clickable project cards.
+
+| Project | First preprint / report date | Primary evidence |
+| --- | --- | --- |
+| HarnessX | 2026-06-12 | [arXiv v1](https://arxiv.org/abs/2606.14249v1) |
+| HarnessPAI | 2026-09-24 | [arXiv v1](https://arxiv.org/abs/2609.29166v1) |
+| Mi-Memory | 2026-07-21 | [arXiv v1](https://arxiv.org/abs/2607.18975v1) |
+| CAR-bench TRACE | 2026-08-24 | [arXiv v1](https://arxiv.org/abs/2608.22793v1) |
+| Topological Collapse | 2026-08-16 | [arXiv v1](https://arxiv.org/abs/2608.15519v1) |
+| Digital Agents Meet World Models | 2026-05 | [Official report announcement](https://github.com/Darwin-Agent/awesome-world-models-for-digital-agents#-news--updates); distinct from the April repository launch |
+| WIA | Not displayed; no verified first-publication date | Official project page and repository do not currently state one |
+
+The hero's `evolve.` highlight uses Xiaomi orange (`#ff6900`), matching the
+HarnessPAI project page. Other existing color accents are retained.
